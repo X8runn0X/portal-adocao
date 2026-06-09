@@ -1,21 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
-    // 1. LEITURA DE PARÂMETROS DA URL (QUERY STRINGS)
+    // 1. POPULAÇÃO DINÂMICA DO DROPDOWN (SCROLL DE ANIMAIS)
     // -------------------------------------------------------------
-    const petInputField = document.getElementById('pet-interesse');
-    const urlParams = new URLSearchParams(window.location.search);
-    const petNameParam = urlParams.get('pet');
-
-    if (petInputField) {
-        if (petNameParam) {
-            petInputField.value = decodeURIComponent(petNameParam);
-        } else {
-            petInputField.value = "Adoção Geral (Ainda sem pet específico)";
+    const petSelect = document.getElementById('pet-interesse');
+    
+    // Lista básica e leitura de novos pets cadastrados pelas ONGs
+    const defaultPets = [
+        {
+            id: 'pet1',
+            name: 'Rex',
+            category: 'dog',
+            age: '2 anos',
+            desc: 'Cachorrinho muito brincalhão e carinhoso.',
+            img: 'https://revistanovaimagem.com.br/wp-content/uploads/2024/06/1-4.jpeg',
+            ong: 'Abrigo Animal',
+            location: 'São Paulo, SP'
+        },
+        {
+            id: 'pet2',
+            name: 'Lua',
+            category: 'cat',
+            age: '1 ano',
+            desc: 'Gata muito tranquila e independente.',
+            img: 'https://cdn.pixabay.com/photo/2017/06/30/07/02/cat-2457441_1280.jpg',
+            ong: 'Abrigo Animal',
+            location: 'Rio de Janeiro, RJ'
         }
+    ];
+    const registeredPets = JSON.parse(localStorage.getItem('registeredPets')) || [];
+    const allPets = [...defaultPets,...registeredPets];
+
+    if (petSelect) {
+        // Limpa o select e injeta a opção padrão
+        petSelect.innerHTML = '<option value="geral">Adoção Geral (Qualquer animal)</option>';
+        
+        // Popula o select interativo com todos os animais
+        allPets.forEach(pet => {
+            const option = document.createElement('option');
+            option.value = pet.name;
+            option.textContent = `${pet.name} (${pet.category === 'dog'? 'Cão' : 'Gato'})`;
+            petSelect.appendChild(option);
+        });
     }
 
     // -------------------------------------------------------------
-    // 2. VALIDAÇÃO DE CAMPOS E FLUXO DE SUBMISSÃO
+    // 2. LEITURA DE PARÂMETROS DA URL (QUERY STRINGS)
+    // -------------------------------------------------------------
+    const urlParams = new URLSearchParams(window.location.search);
+    const petNameParam = urlParams.get('pet');
+
+    if (petSelect && petNameParam) {
+        // Se veio por um card, seleciona o animal automaticamente, mas permite o scroll
+        petSelect.value = decodeURIComponent(petNameParam);
+    }
+
+    // -------------------------------------------------------------
+    // 3. VALIDAÇÃO DE CAMPOS E FLUXO DE SUBMISSÃO
     // -------------------------------------------------------------
     const form = document.getElementById('form-cadastro');
 
@@ -56,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const checkTermos = document.getElementById('termos').checked;
 
             if (isNameValid && isEmailValid && isPhoneValid && checkTermos) {
-                alert(`Obrigado, ${nomeInput.value}!\nSua solicitação de adoção para o pet "${petInputField.value}" foi encaminhada com sucesso.\nNossa equipe de triagem entrará em contato.`);
+                alert(`Obrigado, ${nomeInput.value}!\nSua solicitação de adoção para: "${petSelect.value}" foi encaminhada com sucesso.\nNossa equipe de triagem entrará em contato.`);
                 window.location.href = "index.html";
             } else {
                 alert("Por favor, preencha todos os campos corretamente antes de enviar.");

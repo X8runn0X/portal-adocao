@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const nome = document.getElementById('pet-nome').value.trim();
             const especie = document.getElementById('pet-especie').value;
+            const genero = document.getElementById('pet-genero').value; // Coleta o gênero do formulário da ONG
             const idade = document.getElementById('pet-idade').value.trim();
             const fotoUrl = fotoInput.value.trim();
             const ong = document.getElementById('pet-ong').value.trim();
@@ -58,9 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cria o objeto do novo animal resgatado pela ONG
             const novoPet = {
-                id: 'pet-' + Date.now(), 
+                id: 'pet-' + Date.now(), // Gera um ID único baseado em timestamp
                 name: nome,
                 category: especie,
+                gender: genero, // Adiciona o sexo ao novo objeto cadastrado
                 age: idade,
                 desc: historia,
                 img: fotoUrl,

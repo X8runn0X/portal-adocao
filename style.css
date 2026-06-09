@@ -135,11 +135,11 @@ nav a {
 }
 
 @media only screen and (min-width: 600px) {
-.band { grid-template-columns: repeat(2, 1fr); }
+ .band { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media only screen and (min-width: 900px) {
-.band { grid-template-columns: repeat(3, 1fr); }
+ .band { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Estilização dos Cards */

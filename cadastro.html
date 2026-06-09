@@ -43,7 +43,17 @@
 
             <div class="input-group">
                 <label for="pet-interesse">Animal de Interesse: *</label>
-                <input type="text" id="pet-interesse" name="pet-interesse" readonly required style="background-color: var(--bg-light); cursor: not-allowed;">
+                <select id="pet-interesse" name="pet-interesse" required>
+                    </select>
+            </div>
+
+            <div class="input-group">
+                <label for="pet-pref-genero">Preferência de Sexo do Animal: *</label>
+                <select id="pet-pref-genero" name="pet-pref-genero" required>
+                    <option value="tanto-faz">Tanto faz (Macho ou Fêmea)</option>
+                    <option value="macho">Somente Macho</option>
+                    <option value="femea">Somente Fêmea</option>
+                </select>
             </div>
 
             <div class="checkbox-group">
