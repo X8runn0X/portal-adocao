@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             category: 'dog',
             age: '2 anos',
             desc: 'Cachorrinho muito brincalhão e carinhoso.',
-            img: 'https://revistanovaimagem.com.br/wp-content/uploads/2024/06/1-4.jpeg',
+            img: 'https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd_hd.jpeg',
             ong: 'Abrigo Animal',
             location: 'São Paulo, SP'
         },
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     // 2. CARREGAMENTO DOS ANIMAIS DO LOCALSTORAGE (ONGs)
     // -------------------------------------------------------------
-    const registeredPets = JSON.parse(localStorage.getItem('registeredPets')) || []; // Pega os pets registrados pelas ONGs ou inicia com array vazio
-    const allPets = [...defaultPets,...registeredPets]; // Junta os animais padrões com os novos das ONGs
+    const registeredPets = JSON.parse(localStorage.getItem('registeredPets')) || [];
+    const allPets = [...defaultPets,...registeredPets]; 
 
-     // -------------------------------------------------------------
+    // -------------------------------------------------------------
     // 3. RENDERIZAÇÃO DOS CARDS NA GALERIA (DOM)
     // -------------------------------------------------------------
     const petGallery = document.getElementById('pet-gallery');
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     // 5. GERENCIADOR DE FAVORITOS (LOCALSTORAGE)
     // -------------------------------------------------------------
-    let favoritedPets = JSON.parse(localStorage.getItem('favoritedPets')) || []; // Array de IDs dos pets favoritados
+    let favoritedPets = JSON.parse(localStorage.getItem('favoritedPets')) || [];
 
     function bindFavoriteEvents() {
         const favButtons = document.querySelectorAll('.fav-btn');
