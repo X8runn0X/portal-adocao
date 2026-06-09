@@ -72,15 +72,21 @@
                 <legend>Protocolo de Triagem e Saúde do Animal Resgatado *</legend>
                 <p class="triagem-info">Marque todos os requisitos médicos e comportamentais verificados na triagem:</p>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="triagem-vacina" value="vacinado" required>
+                    <input type="checkbox" id="triagem-vacina" value="vacinado" required 
+                           oninvalid="this.setCustomValidity('Aprovação na vacinação é obrigatória para a triagem.')" 
+                           oninput="this.setCustomValidity('')">
                     <label for="triagem-vacina">Carteira de vacinação em dia (antirrábica e V10/V4)</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="triagem-castrado" value="castrado" required>
+                    <input type="checkbox" id="triagem-castrado" value="castrado" required 
+                           oninvalid="this.setCustomValidity('A confirmação de castração é obrigatória para a triagem.')" 
+                           oninput="this.setCustomValidity('')">
                     <label for="triagem-castrado">Animal castrado (ou com castração agendada em caso de filhote)</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="triagem-docil" value="comportamento-testado" required>
+                    <input type="checkbox" id="triagem-docil" value="comportamento-testado" required 
+                           oninvalid="this.setCustomValidity('A avaliação de comportamento é obrigatória para a triagem.')" 
+                           oninput="this.setCustomValidity('')">
                     <label for="triagem-docil">Comportamento dócil avaliado (não agressivo com humanos)</label>
                 </div>
             </fieldset>
