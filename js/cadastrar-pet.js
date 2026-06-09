@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 historiaError.style.display = 'block';
                 historiaInput.style.borderColor = 'var(--error-color)';
             } else {
-                errorError.style.display = 'none';
+                historiaError.style.display = 'none';
                 historiaInput.style.borderColor = 'var(--border-color)';
             }
         });
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cria o objeto do novo animal resgatado pela ONG
             const novoPet = {
-                id: 'pet-' + Date.now(), // Gera um ID único baseado em timestamp
+                id: 'pet-' + Date.now(), 
                 name: nome,
                 category: especie,
                 age: idade,

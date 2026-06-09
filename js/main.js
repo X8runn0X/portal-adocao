@@ -2,13 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     // 1. BASE DE DADOS PRÉ-CARREGADA COM ANIMAIS E FOTOS REAIS
     // -------------------------------------------------------------
-    const defaultPets = []; // Array vazio para manter a estrutura, os pets reais estão em pets.js e serão mesclados posteriormente
+    const defaultPets = [
+        {
+            id: '1',
+            name: 'Buddy',
+            desc: 'Um cão muito amigável e energético.',
+            img: 'images/buddy.jpg',
+            category: 'dog',
+            age: '2 anos',
+            ong: 'Abrigo de Animais',
+            location: 'São Paulo, SP'
+        },
+        {
+            id: '2',
+            name: 'Luna',
+            desc: 'Uma gata gentil e curiosa.',
+            img: 'images/luna.jpg',
+            category: 'cat',
+            age: '1 ano',
+            ong: 'Protetores de Animais',
+            location: 'Rio de Janeiro, RJ'
+        }
+    ];
 
     // -------------------------------------------------------------
-    // 2. CARREGAMENTO DOS ANIMAIS DO LOCALSTORAGE (ONGs) - CORRIGIDO
+    // 2. CARREGAMENTO DOS ANIMAIS DO LOCALSTORAGE (ONGs)
     // -------------------------------------------------------------
+    // O operador "||" garante uma lista vazia caso não haja cadastros ainda
     const registeredPets = JSON.parse(localStorage.getItem('registeredPets')) || [];
-    const allPets = [...defaultPets,...registeredPets]; // Junta os animais padrões com os novos das ONGs
+    const allPets = [...defaultPets,...registeredPets]; 
 
     // -------------------------------------------------------------
     // 3. RENDERIZAÇÃO DOS CARDS NA GALERIA (DOM)
@@ -16,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const petGallery = document.getElementById('pet-gallery');
 
     function renderGallery(petsToDisplay) {
-        if (!petGallery) return; // Segurança para o script só rodar onde a galeria existir (index.html)
+        if (!petGallery) return; 
         petGallery.innerHTML = ''; 
 
         if (petsToDisplay.length === 0) {
@@ -56,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // 4. SISTEMA DE FILTRAGEM (CÃES / GATOS) E BARRA DE PESQUISA - CORRIGIDO
+    // 4. SISTEMA DE FILTRAGEM (CÃES / GATOS) E BARRA DE PESQUISA
     // -------------------------------------------------------------
     const filterButtons = document.querySelectorAll('.filter-btn');
     const searchInput = document.getElementById('search-input');
@@ -77,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGallery(filtered);
     }
 
-    // Ouvintes de evento de clique para os botões de categoria
+    // Eventos dos botões de filtro
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -86,13 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Ouvinte em tempo real da barra de busca
+    // Evento de digitação na busca
     if (searchInput) {
         searchInput.addEventListener('input', applyFilters);
     }
 
     // -------------------------------------------------------------
-    // 5. GERENCIADOR DE FAVORITOS (LOCALSTORAGE) - CORRIGIDO
+    // 5. GERENCIADOR DE FAVORITOS (LOCALSTORAGE)
     // -------------------------------------------------------------
     let favoritedPets = JSON.parse(localStorage.getItem('favoritedPets')) ||
 
@@ -102,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         favButtons.forEach(btn => {
             const petId = btn.getAttribute('data-pet-id');
             
-            // Ativa visualmente o coração se o ID estiver nos favoritos
             if (favoritedPets.includes(petId)) {
                 btn.classList.add('favorited');
             }
@@ -123,6 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializa a galeria desenhando todos os elementos na tela principal
+    // Desenha a galeria inicial
     renderGallery(allPets);
 });
