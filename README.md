@@ -1,5 +1,6 @@
 PetAdopt - Portal de Doação e Triagem de Animais
 👥 Integrantes do Grupo
+
 Bruno Cesar Perillo da Silva
 
 David Nicetto
