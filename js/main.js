@@ -4,23 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     const defaultPets = [
         {
-            id: '1',
-            name: 'Buddy',
-            desc: 'Um cão muito amigável e energético.',
-            img: 'images/buddy.jpg',
+            id: 'pet1',
+            name: 'Caramelo',
             category: 'dog',
             age: '2 anos',
-            ong: 'Abrigo de Animais',
+            desc: 'Cachorrinho muito brincalhão e carinhoso.',
+            img: 'https://revistanovaimagem.com.br/wp-content/uploads/2024/06/1-4.jpeg',
+            ong: 'Abrigo Animal',
             location: 'São Paulo, SP'
         },
         {
-            id: '2',
-            name: 'Luna',
-            desc: 'Uma gata gentil e curiosa.',
-            img: 'images/luna.jpg',
+            id: 'pet2',
+            name: 'Lua',
             category: 'cat',
             age: '1 ano',
-            ong: 'Protetores de Animais',
+            desc: 'Gata muito tranquila e independente.',
+            img: 'https://cdn.pixabay.com/photo/2017/06/30/07/02/cat-2457441_1280.jpg',
+            ong: 'Abrigo Animal',
             location: 'Rio de Janeiro, RJ'
         }
     ];
@@ -28,9 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     // 2. CARREGAMENTO DOS ANIMAIS DO LOCALSTORAGE (ONGs)
     // -------------------------------------------------------------
-    // O operador "||" garante uma lista vazia caso não haja cadastros ainda
-    const registeredPets = JSON.parse(localStorage.getItem('registeredPets')) || [];
-    const allPets = [...defaultPets,...registeredPets]; 
+    const registeredPets = JSON.parse(localStorage.getItem('registeredPets')) || []; // Pega os pets registrados pelas ONGs ou inicia com array vazio
+    const allPets = [...defaultPets,...registeredPets]; // Junta os animais padrões com os novos das ONGs
 
     // -------------------------------------------------------------
     // 3. RENDERIZAÇÃO DOS CARDS NA GALERIA (DOM)
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const petGallery = document.getElementById('pet-gallery');
 
     function renderGallery(petsToDisplay) {
-        if (!petGallery) return; 
+        if (!petGallery) return; // Segurança para o script só rodar onde a galeria existir (index.html)
         petGallery.innerHTML = ''; 
 
         if (petsToDisplay.length === 0) {
@@ -99,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGallery(filtered);
     }
 
-    // Eventos dos botões de filtro
+    // Ouvintes de evento de clique para os botões de categoria
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -108,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Evento de digitação na busca
+    // Ouvinte em tempo real da barra de busca
     if (searchInput) {
         searchInput.addEventListener('input', applyFilters);
     }
@@ -116,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     // 5. GERENCIADOR DE FAVORITOS (LOCALSTORAGE)
     // -------------------------------------------------------------
-    let favoritedPets = JSON.parse(localStorage.getItem('favoritedPets')) ||
+    let favoritedPets = JSON.parse(localStorage.getItem('favoritedPets')) || []; // Array de IDs dos pets favoritados, persistido no localStorage
 
     function bindFavoriteEvents() {
         const favButtons = document.querySelectorAll('.fav-btn');
@@ -124,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         favButtons.forEach(btn => {
             const petId = btn.getAttribute('data-pet-id');
             
+            // Ativa visualmente o coração se o ID estiver nos favoritos
             if (favoritedPets.includes(petId)) {
                 btn.classList.add('favorited');
             }
@@ -144,6 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Desenha a galeria inicial
+    // Inicializa a galeria desenhando todos os elementos na tela principal
     renderGallery(allPets);
 });
