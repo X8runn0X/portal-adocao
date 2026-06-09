@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetAdopt - Cadastrar Animal Resgatado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>PetAdopt</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Voltar para a Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-form">
+        <h2>Cadastrar Pet para Adoção</h2>
+        <p>Espaço reservado para ONGs cadastrarem animais que passaram pela triagem obrigatória.</p>
+        
+        <form id="form-cadastrar-pet">
+            <div class="input-group">
+                <label for="pet-nome">Nome do Pet: *</label>
+                <input type="text" id="pet-nome" name="pet-nome" required minlength="2" placeholder="Nome do animal">
+                <span class="error-msg" id="nome-error" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="pet-especie">Espécie: *</label>
+                <select id="pet-especie" name="pet-especie" required>
+                    <option value="">Selecione...</option>
+                    <option value="dog">Cão</option>
+                    <option value="cat">Gato</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="pet-idade">Idade Estimada: *</label>
+                <input type="text" id="pet-idade" name="pet-idade" required placeholder="Ex: 6 meses, 2 anos">
+            </div>
+
+            <div class="input-group">
+                <label for="pet-foto">URL da Foto do Pet: *</label>
+                <input type="url" id="pet-foto" name="pet-foto" required placeholder="URL da foto (ex: https://images.unsplash.com/...)">
+                <span class="error-msg" id="foto-error" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="pet-ong">ONG Responsável: *</label>
+                <input type="text" id="pet-ong" name="pet-ong" required placeholder="Nome da instituição ou abrigo protetor">
+            </div>
+
+            <div class="input-group">
+                <label for="pet-localizacao">Local / Endereço Física do Pet: *</label>
+                <input type="text" id="pet-localizacao" name="pet-localizacao" required placeholder="Ex: Av. Paulista, 1000 - São Paulo, SP">
+            </div>
+
+            <fieldset class="triagem-group">
+                <legend>Protocolo de Triagem e Saúde do Animal Resgatado *</legend>
+                <p class="triagem-info">Marque todos os requisitos médicos e comportamentais verificados na triagem:</p>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="triagem-vacina" value="vacinado" required>
+                    <label for="triagem-vacina">Carteira de vacinação em dia (antirrábica e V10/V4)</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="triagem-castrado" value="castrado" required>
+                    <label for="triagem-castrado">Animal castrado (ou com castração agendada em caso de filhote)</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="triagem-docil" value="comportamento-testado" required>
+                    <label for="triagem-docil">Comportamento dócil avaliado (não agressivo com humanos)</label>
+                </div>
+            </fieldset>
+
+            <div class="input-group">
+                <label for="pet-historia">Histórico do Resgate e Personalidade: *</label>
+                <textarea id="pet-historia" name="pet-historia" required minlength="15" placeholder="Conte brevemente onde o pet foi resgatado e como é a personalidade dele..." rows="4"></textarea>
+                <span class="error-msg" id="historia-error" aria-live="polite"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">Disponibilizar para Adoção</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PetAdopt - Laboratório de Front-End. Todos os direitos reservados.</p>
+            <p class="integrantes"><strong>Desenvolvido por:</strong> Bruno Cesar Perillo da Silva | David Nicetto | Pedro Henrique Andrade Fonseca | Rafhael Consoni Carletti</p>
+            <div class="social-links">
+                <span class="social-item">📞 WhatsApp: (XX) XXXXX-XXXX</span>
+                <span class="social-item">📸 Instagram: @petadopt_oficial</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cadastrar-pet.js" defer></script>
+</body>
+</html>

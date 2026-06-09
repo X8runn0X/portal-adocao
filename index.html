@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetAdopt - Portal de Doação de Animais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>PetAdopt</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Galeria</a></li>
+                <li><a href="cadastro.html" class="nav-btn-highlight secondary">Seja um Adotante</a></li>
+                <li><a href="cadastrar-pet.html" class="nav-btn-highlight">Divulgar Resgate (ONGs)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Encontre seu novo melhor amigo</h2>
+            <p>Milhares de animais estão à espera de um lar cheio de amor.</p>
+            
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Pesquise por nome do pet ou abrigo..." aria-label="Pesquisar animais">
+            </div>
+
+            <div class="filtros">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="dog">Cães</button>
+                <button class="filter-btn" data-filter="cat">Gatos</button>
+            </div>
+        </section>
+
+        <section id="pet-gallery" class="band">
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PetAdopt - Laboratório de Front-End. Todos os direitos reservados.</p>
+            <p class="integrantes"><strong>Desenvolvido por:</strong> Bruno Cesar Perillo da Silva | David Nicetto | Pedro Henrique Andrade Fonseca | Rafhael Consoni Carletti</p>
+            <div class="social-links">
+                <span class="social-item">📞 WhatsApp: (XX) XXXXX-XXXX</span>
+                <span class="social-item">📸 Instagram: @petadopt_oficial</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

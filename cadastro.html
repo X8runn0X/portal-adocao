@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetAdopt - Cadastro de Adotante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>PetAdopt</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Voltar para a Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-form">
+        <h2>Cadastro de Adotante Responsável</h2>
+        <p>Preencha os campos abaixo para dar início ao processo de adoção do pet selecionado.</p>
+        
+        <form id="form-cadastro">
+            <div class="input-group">
+                <label for="nome">Nome Completo: *</label>
+                <input type="text" id="nome" name="nome" required minlength="4" placeholder="Insira seu nome completo">
+                <span class="error-msg" id="nome-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">E-mail de Contato: *</label>
+                <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+                <span class="error-msg" id="email-error" aria-live="polite"></span>
+            </div>
+            
+            <div class="input-group">
+                <label for="telefone">Telefone / WhatsApp: *</label>
+                <input type="tel" id="telefone" name="telefone" required pattern="[0-9]{11}" placeholder="DDD + 9 dígitos (somente números)">
+                <span class="error-msg" id="telefone-error" aria-live="polite"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="pet-interesse">Animal de Interesse: *</label>
+                <input type="text" id="pet-interesse" name="pet-interesse" readonly required style="background-color: var(--bg-light); cursor: not-allowed;">
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="termos" required>
+                <label for="termos">Declaro estar ciente dos termos de adoção responsável e garantir as condições básicas para o bem-estar do animal.</label>
+            </div>
+            
+            <button type="submit" class="submit-btn">Solicitar Adoção</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PetAdopt - Laboratório de Front-End. Todos os direitos reservados.</p>
+            <p class="integrantes"><strong>Desenvolvido por:</strong> Bruno Cesar Perillo da Silva | David Nicetto | Pedro Henrique Andrade Fonseca | Rafhael Consoni Carletti</p>
+            <div class="social-links">
+                <span class="social-item">📞 WhatsApp: (XX) XXXXX-XXXX</span>
+                <span class="social-item">📸 Instagram: @petadopt_oficial</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cadastro.js" defer></script>
+</body>
+</html>
