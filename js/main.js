@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'pet1',
             name: 'Caramelo',
             category: 'dog',
+            gender: "macho",
             age: '2 anos',
             desc: 'Cachorrinho muito brincalhão e carinhoso.',
             img: 'https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd_hd.jpeg',
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'pet2',
             name: 'Lua',
             category: 'cat',
+            gender: "fêmea",
             age: '1 ano',
             desc: 'Gata muito tranquila e independente.',
             img: 'https://cdn.pixabay.com/photo/2017/06/30/07/02/cat-2457441_1280.jpg',
@@ -24,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             location: 'Rio de Janeiro, RJ'
         }
     ];
-
     // -------------------------------------------------------------
     // 2. CARREGAMENTO DOS ANIMAIS DO LOCALSTORAGE (ONGs)
     // -------------------------------------------------------------
