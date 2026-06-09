@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const defaultPets = [
         {
             id: 'pet1',
-            name: 'Rex',
+            name: 'Caramelo',
             category: 'dog',
             age: '2 anos',
             desc: 'Cachorrinho muito brincalhão e carinhoso.',
